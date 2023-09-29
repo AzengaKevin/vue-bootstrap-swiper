@@ -1,47 +1,109 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+const slides = [
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+  {
+    title: 'Card title',
+    content: `This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.`,
+    lastUpdated: '3 mins ago',
+
+  },
+];
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <div class="container py-5">
+      <swiper-container :slides-per-view="3" :space-between="10" :pagination="true" speed="500" loop="true"
+        css-mode="true" :autoplay="true">
+        <swiper-slide v-for="(slide, index) in slides" :key="index">
+          <div class="card">
+            <img :src="`https://picsum.photos/480/320?random=${index}`" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ slide.title }}</h5>
+              <p class="card-text">{{ slide.content }}</p>
+              <p class="card-text"><small class="text-body-secondary">Last updated {{ slide.lastUpdated }}</small></p>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
   </main>
+  <footer>
+
+  </footer>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
